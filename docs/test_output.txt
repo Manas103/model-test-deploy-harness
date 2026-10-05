@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.manas.harness.FairShareSchedulerBenchmarkTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 s -- in com.manas.harness.FairShareSchedulerBenchmarkTest
+-------------------------------------------------------------------------------
+Test set: com.manas.harness.FairShareSchedulerCorrectnessTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in com.manas.harness.FairShareSchedulerCorrectnessTest

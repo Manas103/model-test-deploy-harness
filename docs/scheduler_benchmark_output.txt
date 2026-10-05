@@ -1,0 +1,9 @@
+Model test-and-deploy harness: fair-share scheduling benchmark
+Jobs: 2400 across 8 users, 4 worker slots, 1-second-tick simulation
+
+Without preemption: max fair-share deviation 21.99% (claim: within 4%)
+With preemption:    max fair-share deviation 21.28% (claim: within 4%)
+p95 sub-minute queue wait without preemption: 7521.0s
+p95 sub-minute queue wait with preemption:    6370.0s
+Preemption reduces p95 sub-minute queue wait by 1.2x (claim: 17x)
+Long jobs actually preempted at least once: 657

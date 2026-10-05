@@ -1,0 +1,46 @@
+Pinned container digest: sha256:c29bba2bc6ece0c3c0fb2b5d2365f86d66aebafa1fb67e65ef49d351959ec62d
+
+mode=buggy_unordered_iteration
+  run1 output: order-552,order-219,order-883,order-940,order-771,order-104
+  run1 sha256: d9825eebfb434d4a8c13c71ec3132db1b94e8bd2684af0d9dcbd11e861a61382
+  run2 output: order-219,order-552,order-883,order-104,order-940,order-771
+  run2 sha256: d03712c5f061c2516518a73570da0bd87dccd8471e2542109e61b82e788838a0
+  result: MISMATCH (gate refuses promotion)
+
+mode=fixed_ordered_iteration
+  run1 output: order-104,order-219,order-552,order-771,order-883,order-940
+  run1 sha256: cdd51e28d12227acf028ceee72eb910dc2fc900544049b3075d67fc00714e336
+  run2 output: order-104,order-219,order-552,order-771,order-883,order-940
+  run2 sha256: cdd51e28d12227acf028ceee72eb910dc2fc900544049b3075d67fc00714e336
+  result: BYTE_IDENTICAL (gate passes, promotion allowed)
+
+mode=buggy_unseeded_rng
+  run1 output: 390165,616489,569842,622600,987978
+  run1 sha256: c0c0d4d4149e42b32c83f0a54e5e1172c68d7e4aa9a35e9a2496b5c829947b35
+  run2 output: 732490,553777,436634,321338,685627
+  run2 sha256: 4f31fcaaf0cf7d397865439a12e77690b5a4943f7d1adb0b8d88d92739c2cf48
+  result: MISMATCH (gate refuses promotion)
+
+mode=fixed_seeded_rng
+  run1 output: 271233,345929,591951,877286,605902
+  run1 sha256: f052d5c0a918a7ed1a0d3a25fdaf2f7d360ac00b0834df2a4f6d22d161e803f5
+  run2 output: 271233,345929,591951,877286,605902
+  run2 sha256: f052d5c0a918a7ed1a0d3a25fdaf2f7d360ac00b0834df2a4f6d22d161e803f5
+  result: BYTE_IDENTICAL (gate passes, promotion allowed)
+
+mode=buggy_wallclock_read
+  run1 output: processed-at:1791241978.7213435
+  run1 sha256: dac18f550d31789a6e0a7259f408404973e0035ba673e48afd0a215f10b1ba1c
+  run2 output: processed-at:1791241979.181975
+  run2 sha256: d34062700918a08118b0818e1d83df71b64fe8e793e92e33fd60c825c8e9ae06
+  result: MISMATCH (gate refuses promotion)
+
+mode=fixed_no_wallclock
+  run1 output: processed-vintage:vintage-2026-09-15
+  run1 sha256: 232a4342e3875f09cf3f79930e8a060524a5676e47c06a18a5a457ab16f72b3b
+  run2 output: processed-vintage:vintage-2026-09-15
+  run2 sha256: 232a4342e3875f09cf3f79930e8a060524a5676e47c06a18a5a457ab16f72b3b
+  result: BYTE_IDENTICAL (gate passes, promotion allowed)
+
+Summary: 3 of 6 modes byte-identical, 3 of 6 modes caught as nondeterministic
+Expected: 3 byte-identical (the fixed_* modes), 3 caught (the buggy_* modes)
